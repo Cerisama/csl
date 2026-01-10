@@ -1,0 +1,58 @@
+// Cerussite Standard Library (CSL)
+
+#alias(b, #bits)
+#alias(fb, #fbits)
+
+fb f#b csl.math.pi#b = $castw(f#b, 0xf400921FB54442D18)
+fb f#b(f#b) csl.math.torad.#b = {
+    $ret($0 * (csl.math.pi#b / $castw(f#b, 180.0)))
+}
+fb f#b(f#b) csl.math.todeg#b = {
+    $ret($0 * ($castw(f#b, 180.0) / csl.math.pi#b))
+}
+fb i#b(f#b) csl.math.floor#b = {
+    $ret($cast(i#b, $0))
+}
+fb i#b(f#b) csl.math.round#b = {
+    $ret($cast(i#b, $0 + $castw(f#b, 0.5)))
+}
+fb i#b(f#b) csl.math.ceil#b = { //fix
+    $ret(csl.math.floor#b($0) + $castw(i#b, 1))
+}
+
+#uselib("csl.lib")
+import ptr(u32) csl.mem.alloc
+import ptr(u32) csl.mem.zalloc
+import void(ptr) csl.mem.free
+import void(ptr, ptr, u32) csl.mem.cpy
+
+import void(u64) csl.math.setseed
+import u64() csl.math.randomseed
+import i32(i32,i32) csl.math.random
+
+import ptr(ptr) csl.str.create
+import void(ptr) csl.str.print
+import ptr(ptr,ptr) csl.str.concat
+import ptr(ptr,i32,i32) csl.str.substr
+import u32(ptr) csl.str.size
+import ptr(ptr) csl.str.cstr
+import ptr(ptr) csl.str.fromcstr
+import ptr(i32) csl.str.fromi32
+import void(ptr) csl.str.destroy
+
+import void(ptr,u64) csl.fs.move
+import u64(ptr) csl.fs.cur
+import u64(ptr) csl.fs.size
+import void(ptr,ptr) csl.fs.write
+import ptr(ptr,u32) csl.fs.read
+import ptr(ptr,i8) csl.fs.create
+import void(ptr) csl.fs.destroy
+
+void(i32) csl.dbg.func1 = {
+    ptr tmp1 = csl.str.fromi32($0)
+	ptr tmp2 = csl.str.concat(tmp1,"\n")
+	csl.str.destroy(tmp1)
+	csl.str.print(tmp2)
+	csl.str.destroy(tmp2)
+    $ret()
+}
