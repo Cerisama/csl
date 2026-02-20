@@ -1,0 +1,26 @@
+#define ex extern "C"
+using fs = void*;
+using i8 = char;
+using i16 = short;
+using i32 = int;
+using i64 = long long;
+using u8 = unsigned char;
+using u16 = unsigned short;
+using u32 = unsigned int;
+using u64 = unsigned long long;
+using f32 = float;
+using f64 = double;
+using ptr = unsigned long long;
+using csl_atomic = i32;
+using csl_mutex = csl_atomic;
+using csl_str = char*;
+using csl_mempageptr = void*;
+using csl_mempage = void*;
+using csl_allocation = void*;
+using csl_thread = void*;
+using csl_list = void*;
+using csl_listfragment = void*;
+using csl_queue = void*;
+using csl_jobs = void*;
+using csl_vaddr = u64;
+using csl_api = void*;
