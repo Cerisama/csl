@@ -1,5 +1,5 @@
 # CSL
-CSL (Cerussite Standard Library) contains functions for many different things using the language Cerussite in order to make it a functional engine. These include:
+CSL (Cerussite Standard Library) contains functions for doing many different things using the language Cerussite in order to make it a functional engine. These include:
 - Memory manipulation
 - Memory allocation/freeing
 - Memory stasis
